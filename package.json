@@ -1,0 +1,29 @@
+{
+  "name": "gatsby-plugin-cookiehub-banner",
+  "version": "0.0.1",
+  "description": "Gatsby plugin to use cookie banner generated with cookiehub: https://www.cookiehub.com/",
+  "author": {
+    "name": "VirtualFox0"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "cookie",
+    "cookiehub",
+    "gdpr",
+    "DSGVO",
+    "gatsby-plugin-google-analytics-gdpr"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "babel-preset-gatsby-package": "^0.2.14",
+    "cross-env": "^6.0.3"
+  },
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  },
+  "license": "MIT"
+}
