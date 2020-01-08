@@ -20,7 +20,7 @@ module.exports = {
     {
         resolve: `gatsby-plugin-cookiehub-banner`,
         options: {
-            // Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/<YOUR_COOKIEHUB_ID>.js
+            // Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
             cookieHubId: "YOUR_COOKIEHUB_BANNER_ID",
             // Categories configured with CookieHub
             categories: [
@@ -52,18 +52,16 @@ There is a GDPR plugin to use Google Analytics in an easy way with this plugin: 
 
 ### `cookieHubId`
 
-Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/<YOUR_COOKIEHUB_ID>.js
-
-## Optional Fields
+Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
 
 ### `categories`
 
 Define your categories configured with CookieHub. A category consists of `categoryName` and `cookieName`. 
 
-## `categoryName`
+#### `categoryName`
 
 Unique id of the category which you can set in CookieHub categories.
 
-## `cookieName`
+#### `cookieName`
 
 Define a custom cookie name. If none cookieName is given, the plugin will generate one.
