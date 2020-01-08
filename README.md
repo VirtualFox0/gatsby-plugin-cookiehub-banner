@@ -1,5 +1,8 @@
 # gatsby-plugin-cookiehub-banner
+
 Gatsby plugin to use cookie banner generated with cookiehub.
+
+This plugin works in an easy way together with a plugin to add google analytics GDPR compliant: [gatsby-plugin-google-analytics-gdpr](https://github.com/VirtualFox0/gatsby-plugin-google-analytics-gdpr)
 
 ## Setup
 
@@ -46,7 +49,7 @@ You can configure your categories in the `gatsby-config.js` with the according c
 Cookie Handling Example: 
 If you want to integrate Google Analytics, you can start tracking as soon as the analytics cookie is set to `true` and disable tracking if the user withdraws the choice.
 
-There is a GDPR plugin to use Google Analytics in an easy way with this plugin: [gatsby-plugin-google-analytics-gdpr](https://github.com/VirtualFox0/gatsby-plugin-google-analytics-gdpr). 
+There is a GDPR plugin to use Google Analytics in an easy way with this plugin: [gatsby-plugin-google-analytics-gdpr](https://github.com/VirtualFox0/gatsby-plugin-google-analytics-gdpr). Install and configure the `gatsby-plugin-google-analytics-gdpr` plugin and set the analytics category cookie name to `gatsby-plugin-google-analytics-gdpr_cookies-enabled`.
 
 ## Options
 
