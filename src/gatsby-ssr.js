@@ -5,8 +5,13 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
         return null
     }
 
+    function isV2ApiEnabled(pluginOptions) {
+        return pluginOptions.cookieHubV2Api !== undefined ? pluginOptions.cookieHubV2Api : false;
+    }
+
     const setComponents = pluginOptions.head ? setHeadComponents : setPostBodyComponents
-    const cookieHubUrl = "https://cookiehub.net/cc/" + pluginOptions.cookieHubId + ".js"
+    const apiVersion = isV2ApiEnabled(pluginOptions) ? 'c2' : 'cc'
+    const cookieHubUrl = "https://cookiehub.net/" + apiVersion + "/" + pluginOptions.cookieHubId + ".js"
 
     var cookieNames = {};
     for (var i = 0; i < pluginOptions.categories.length; i++) {
@@ -34,7 +39,7 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
                         document.cookie = cookieString;
                     };
 
-                    window.cookieconsent.initialise({
+                    const cpm = {
                         onInitialise: function(status) {
                             for (var i = 0; i < status.categories.length; i++) {
                                 var category = status.categories[i];
@@ -47,7 +52,15 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }, plugi
                         onRevoke: function(category) {
                             handleCategoryUserInput(category, false);
                         }
-                    })
+                    };
+
+                    if (window.cookieconsent !== undefined) {
+                        window.cookieconsent.initialise(cpm);
+                    } else if (window.cookiehub !== undefined) {
+                        window.cookiehub.load(cpm);
+                    } else {
+                        console.log("CookieHub not loaded!");
+                    }
                 });
             `,
             }}
