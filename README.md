@@ -4,9 +4,19 @@ Gatsby plugin to use cookie banner generated with cookiehub.
 
 This plugin works in an easy way together with a plugin to add google analytics GDPR compliant: [gatsby-plugin-google-analytics-gdpr](https://github.com/VirtualFox0/gatsby-plugin-google-analytics-gdpr)
 
-## Setup
+## Setup Cookiehub
 
-* Create [CookieHub](https://www.cookiehub.com/) account.
+### Setup Cookiehub v2
+
+* Create [CookieHub](https://dash.cookiehub.com/login) account.
+* [Add domain](https://dash.cookiehub.com/domain).
+* Configure domain.
+
+### Setup Cookiehub v1
+
+CookieHub v1 which is being phased out. Version 1 is currently sunsetting and will be shut down in May 2021 (EOL plan).
+
+* Create [CookieHub](https://www.cookiehub.com/login) account.
 * [Add widget](https://www.cookiehub.com/widgets).
 * Configure widget at least with appropriate categories in the category tab.
 
@@ -23,15 +33,15 @@ module.exports = {
     {
         resolve: `gatsby-plugin-cookiehub-banner`,
         options: {
-            // Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
+            // The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
             cookieHubId: "YOUR_COOKIEHUB_BANNER_ID",
             // Optional parameter (default false) - Use new v2 API.
             cookieHubV2Api: false
             // Categories configured with CookieHub
             categories: [
             { 
-                categoryName: 'analytics', // Unique id of the category which you can set in CookieHub categories.
-                cookieName: 'gatsby-plugin-google-analytics-gdpr_cookies-enabled' // Custom cookie name
+                categoryName: 'analytics', // Unique id of the category which is set by Cookiehub.
+                cookieName: 'gatsby-plugin-google-analytics-gdpr_cookies-enabled' // Your custom cookie name
             },
             { 
                 categoryName: 'marketing',
@@ -57,7 +67,14 @@ There is a GDPR plugin to use Google Analytics in an easy way with this plugin: 
 
 ### `cookieHubId`
 
-Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
+The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
+- CookieHub v1: Your cookiehub widget ID. You can find the widget ID in the CookieHub tab "Your script" of the appropriate widget. 
+- CookieHub v2: Your cookiehub domain code. You can find the code in the overview tab of your configured domain.
+
+### `cookieHubV2Api`
+
+Optional parameter (default false).
+If true the plugin uses the new Cookiehub API v2.
 
 ### `categories`
 
