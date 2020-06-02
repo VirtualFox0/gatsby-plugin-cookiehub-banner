@@ -36,7 +36,7 @@ module.exports = {
             // The ID is part of the CookieHub URL: https://cookiehub.net/cc/YOUR_COOKIEHUB_ID.js
             cookieHubId: "YOUR_COOKIEHUB_BANNER_ID",
             // Optional parameter (default false) - Use new v2 API.
-            cookieHubV2Api: false
+            cookieHubV2Api: false,
             // Categories configured with CookieHub
             categories: [
             { 
